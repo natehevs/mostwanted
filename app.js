@@ -1,4 +1,20 @@
 "use strict"
+//NOTES****
+//Create a working app to search a database to find criminals.
+  //Create search by name function
+    //find person using name they entered
+    //use ID to link to names?
+  //search by trait function
+    //gender
+    //weight
+    //height
+    //date of birth should be AGE
+      //take current year- date of birth possibly?
+    //eye color
+    //occupation
+  //display options/main menu
+
+
 /*
 Build all of your functions for displaying and gathering information below (GUI).
 */
@@ -8,11 +24,14 @@ function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
   switch(searchType){
-    case 'yes':
+    case "yes":
       searchResults = searchByName(people);
+      console.log(displayPerson);
       break;
-    case 'no':
+    case "no":
       // TODO: search by traits
+      searchResults = searchByTrait(people);
+      prompt("Please enter any known traits.");
       break;
       default:
     app(people); // restart app
@@ -71,6 +90,29 @@ function searchByName(people){
   return foundPerson;
 }
 
+//TODO: SEARCH BY TRAITS FUNCTION
+function searchByTrait(people){
+  let gender = prompt("What is the person's gender?");
+  let eyeColor = prompt("What is the person's eye color?");
+  let height = prompt("What is the person's height?");
+  let age = prompt("What is the person's age?");
+  let weight = prompt("What is the person's wight?");
+  let occupation = prompt("What is the peron's occupation?");
+
+  let foundPerson = people.filter(function(person)){
+    if () {
+
+    }
+    else () {
+
+    }
+    else if () {
+
+    }
+  }
+  return foundPerson;
+}
+
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
@@ -104,3 +146,13 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+app();
+mainMenu();
+searchByName();
+searchByTrait();
+displayPeople();
+displayPerson();
+promptFor();
+yesNo();
+chars();
