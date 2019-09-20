@@ -44,10 +44,16 @@ function mainMenu(person, people, searchResults, foundPerson){
   if (searchResults.length === 1) {
     return displayPerson();
   }
+<<<<<<< HEAD
   else if(searchResults.length > 1) {
+=======
+
+  else if (searchResults > 1) {
+>>>>>>> 48b9563ca1b50c7e8032287e1d01cc4fa789b226
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
   }
-  else {
+  else  {
+
     alert("Could not find that individual.");
     return app(people); // restart
   }
@@ -81,11 +87,15 @@ function searchByName(people){
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
       return true;
-    }
+    
+
+      } 
     else{
       return false;
+
     }
-  })
+  
+
   // TODO: find the person using the name they entered
   return foundPerson;
 }
