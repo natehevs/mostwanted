@@ -35,20 +35,20 @@
   }
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  mainMenu(searchResults, people, searchResults);
 }
 
 // Menu function to call once you find who you are looking for
-function mainMenu(person, people){
+function mainMenu(person, people, searchResults){
 
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
   if (searchResults === 1) {
     return foundPerson;
   }
-  else (searchResults > 1) {
+  else if (searchResults > 1) {
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
   }
-  else if(!person){
+  else  {
     alert("Could not find that individual.");
     return app(people); // restart
   }
@@ -82,17 +82,20 @@ function searchByName(people){
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
       return true;
-    }
+    
+
+      } 
     else{
       return false;
-    }
-  })
+
+      }
+    
   // for(let i = 0; i < data.length; i++){
   //   console.log(data[i].firstName + " " + data[i].lastName);
   // }
   // TODO: find the person using the name they entered
   return foundPerson;
-}
+
 
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
