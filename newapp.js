@@ -42,14 +42,10 @@
 function mainMenu(person, people, searchResults, foundPerson){
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
   if (searchResults.length === 1) {
-    return displayPerson();
+    return displayPerson(person);
   }
-<<<<<<< HEAD
-  else if(searchResults.length > 1) {
-=======
 
-  else if (searchResults > 1) {
->>>>>>> 48b9563ca1b50c7e8032287e1d01cc4fa789b226
+  else if(searchResults.length > 1) {
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
   }
   else  {
@@ -84,7 +80,7 @@ function searchByName(people){
   let firstName = prompt("What is the person's first name?", chars);
   let lastName = prompt("What is the person's last name?", chars);
 
-  let foundPerson = people.filter(function(person){
+  let foundPerson = people.filter(function(person)  {
     if(person.firstName === firstName && person.lastName === lastName){
       return true;
     
@@ -95,7 +91,7 @@ function searchByName(people){
 
     }
   
-
+  })
   // TODO: find the person using the name they entered
   return foundPerson;
 }
@@ -110,21 +106,21 @@ function chars(input){
 }
 
 function displayPerson(person){
-
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "Gender:" + person.gender + "\n";
-  personInfo += "Age:" + person.age + "\n";
-  personInfo += "Height:" + person.height + "\n";
-  personInfo += "Weight:" + person.weight + "\n";
-  personInfo += "Eye Color:" + person.eyeColor + "\n";
-  personInfo += "Occupation:" + person.occupation + "\n";
-  personInfo += "Parents:" + person.parents + "\n";
-  personInfo += "Current Spouse:" + person.currentSpouse + "\n";
+
+  let personInfo = ("First Name: " + person.firstName + "\n");
+  personInfo += ("Last Name: " + person.lastName + "\n");
+  personInfo += ("Gender:" + person.gender + "\n");
+  personInfo += ("Age:" + person.age + "\n");
+  personInfo += ("Height:" + person.height + "\n");
+  personInfo += ("Weight:" + person.weight + "\n");
+  personInfo += ("Eye Color:" + person.eyeColor + "\n");
+  personInfo += ("Occupation:" + person.occupation + "\n");
+  personInfo += ("Parents:" + person.parents + "\n");
+  personInfo += ("Current Spouse:" + person.currentSpouse + "\n");
   // TODO: finish getting the rest of the information to display
-  alert(personInfo);
+  console.log(personInfo);
 }
 
 
