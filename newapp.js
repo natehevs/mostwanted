@@ -38,24 +38,17 @@
   mainMenu(searchResults, people, searchResults);
 }
 
-<<<<<<< HEAD
-                                                              // Menu function to call once you find who you are looking for
-function mainMenu(person, people, searchResults){
-
-=======
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people, searchResults, foundPerson){
->>>>>>> 444d4463bc7674797e8da034f7527c2dd4cd028d
+
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
   if (searchResults.length === 1) {
     return displayPerson();
   }
-<<<<<<< HEAD
-  else if(searchResults.length > 1) {
-=======
+
 
   else if (searchResults > 1) {
->>>>>>> 48b9563ca1b50c7e8032287e1d01cc4fa789b226
+
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
   }
   else  {
