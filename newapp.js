@@ -34,11 +34,11 @@
       break;
   }
   
-  // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
+                                                                        // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people, searchResults);
 }
 
-// Menu function to call once you find who you are looking for
+                                                              // Menu function to call once you find who you are looking for
 function mainMenu(person, people, searchResults){
 
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
@@ -59,13 +59,13 @@ function mainMenu(person, people, searchResults){
 
   switch(displayOption){
     case "info":
-    // TODO: get person's info
+                                                             // TODO: get person's info
     break;
     case "family":
-    // TODO: get person's family
+                                                                // TODO: get person's family
     break;
     case "descendants":
-    // TODO: get person's descendants
+                                                                                  // TODO: get person's descendants
     break;
     case "restart":
     app(people); // restart
@@ -83,35 +83,30 @@ function searchByName(people){
 
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
-      return true;
-    
-
+      return true;  
       } 
     else{
       return false;
-
     }
-  
-
-  // TODO: find the person using the name they entered
+                                                                                                               // TODO: find the person using the name they entered
   return foundPerson;
-}
+}}
 
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
-// helper function to pass in as default promptFor validation
+                                                                      // helper function to pass in as default promptFor validation 
 function chars(input){
-  return true; // default validation only
+  return true;                                                              // default validation only
 }
 
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
+                                                                // print all of the information about a person:
+                                                                // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
+                                                                // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
 
