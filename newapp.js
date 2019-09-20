@@ -45,10 +45,12 @@ function mainMenu(person, people, searchResults){
   if (searchResults === 1) {
     return foundPerson;
   }
+
   else if (searchResults > 1) {
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
   }
   else  {
+
     alert("Could not find that individual.");
     return app(people); // restart
   }
@@ -71,7 +73,7 @@ function mainMenu(person, people, searchResults){
     case "quit":
     return; // stop execution
     default:
-    return mainMenu(person, people); // ask again
+    return mainMenu(person, people, searchResults); // ask again
   }
 }
 
@@ -88,14 +90,12 @@ function searchByName(people){
     else{
       return false;
 
-      }
-    
-  // for(let i = 0; i < data.length; i++){
-  //   console.log(data[i].firstName + " " + data[i].lastName);
-  // }
+    }
+  
+
   // TODO: find the person using the name they entered
   return foundPerson;
-
+}
 
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
