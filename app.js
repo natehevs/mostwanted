@@ -14,12 +14,6 @@
     //occupation
   //display options/main menu
 
-
-/*
-Build all of your functions for displaying and gathering information below (GUI).
-*/
-
-// app is the function called to start the entire application
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
@@ -34,7 +28,7 @@ function app(people){
       prompt("Please enter any known traits.");
       break;
       default:
-    app(people); // restart app
+    app(people); 
       break;
   }
   
@@ -45,11 +39,9 @@ function app(people){
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
   if(!person){
     alert("Could not find that individual.");
-    return app(people); // restart
+    return app(people);
   }
 
   let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
@@ -86,35 +78,34 @@ function searchByName(people){
       return false;
     }
   })
-  // TODO: find the person using the name they entered
   return foundPerson;
 }
 
 //TODO: SEARCH BY TRAITS FUNCTION
-// function searchByTrait(people){
-//   alert ("These are the following traits we identify people with: Gender, eyecolor, height, age, weight, occupation. The next prompt will ask how many of these traits do you know.")
-//   let numberOfTraits = prompt("How many traits can you identify the person with? The traits include:Gender, eyecolor, height, age, weight, occupation. Answer with a number 1 - 6.")
-//   let whichTraits = prompt("Which traits would you like to identify the person with? Traits include:Gender, eyecolor, height, age, weight, occupation.")
-//   let gender = prompt("What is the person's gender?");
-//   let eyeColor = prompt("What is the person's eye color?");
-//   let height = prompt("What is the person's height?");
-//   let age = prompt("What is the person's age?");
-//   let weight = prompt("What is the person's wight?");
-//   let occupation = prompt("What is the peron's occupation?");
+function searchByTrait(people){
+  alert ("These are the following traits we identify people with: Gender, eyecolor, height, age, weight, occupation. The next prompt will ask how many of these traits do you know.")
+  let numberOfTraits = prompt("How many traits can you identify the person with? The traits include:Gender, eyecolor, height, age, weight, occupation. Answer with a number 1 - 6.")
+  let whichTraits = prompt("Which traits would you like to identify the person with? Traits include:Gender, eyecolor, height, age, weight, occupation.")
+  let gender = prompt("What is the person's gender?");
+  let eyeColor = prompt("What is the person's eye color?");
+  let height = prompt("What is the person's height?");
+  let age = prompt("What is the person's age?");
+  let weight = prompt("What is the person's wight?");
+  let occupation = prompt("What is the peron's occupation?");
 
-//   let foundPerson = people.filter(function(person){
-//     if () {
+  let foundPerson = people.filter(function(person){
+    if () {
 
-//     }
-//     else () {
+    }
+    else () {
 
-//     }
-//     else if () {
+    }
+    else if () {
 
-//     }
-//   }
-//   return foundPerson;
-// }
+    }
+  }
+  return foundPerson;
+}
 
 // alerts a list of people
 function displayPeople(people){
