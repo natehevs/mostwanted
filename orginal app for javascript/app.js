@@ -91,22 +91,30 @@ function searchByName(people){
 }
 
 //TODO: SEARCH BY TRAITS FUNCTION
-function searchByTrait(people){
-  alert ("These are the following traits we identify people with: Gender, eyecolor, height, age, weight, occupation. The next prompt will ask how many of these traits do you know.")
-  let numberOfTraits = prompt("How many traits can you identify the person with? The traits include:Gender, eyecolor, height, age, weight, occupation. Answer with a number 1 - 6.")
-  let whichTraits = prompt("Which traits would you like to identify the person with? Traits include:Gender, eyecolor, height, age, weight, occupation.")
-  let gender = prompt("What is the person's gender?");
-  let eyeColor = prompt("What is the person's eye color?");
-  let height = prompt("What is the person's height?");
-  let age = prompt("What is the person's age?");
-  let weight = prompt("What is the person's wight?");
-  let occupation = prompt("What is the peron's occupation?");
+// function searchByTrait(people){
+//   alert ("These are the following traits we identify people with: Gender, eyecolor, height, age, weight, occupation. The next prompt will ask how many of these traits do you know.")
+//   let numberOfTraits = prompt("How many traits can you identify the person with? The traits include:Gender, eyecolor, height, age, weight, occupation. Answer with a number 1 - 6.")
+//   let whichTraits = prompt("Which traits would you like to identify the person with? Traits include:Gender, eyecolor, height, age, weight, occupation.")
+//   let gender = prompt("What is the person's gender?");
+//   let eyeColor = prompt("What is the person's eye color?");
+//   let height = prompt("What is the person's height?");
+//   let age = prompt("What is the person's age?");
+//   let weight = prompt("What is the person's wight?");
+//   let occupation = prompt("What is the peron's occupation?");
 
-  let foundPerson = people.filter(function(person)){
-   
-  }
-  return foundPerson;
-}
+//   let foundPerson = people.filter(function(person){
+//     if () {
+
+//     }
+//     else () {
+
+//     }
+//     else if () {
+
+//     }
+//   }
+//   return foundPerson;
+// }
 
 // alerts a list of people
 function displayPeople(people){
