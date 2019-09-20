@@ -20,7 +20,7 @@ function app(people){
   switch(searchType){
     case "yes":
       searchResults = searchByName(people);
-      console.log(displayPerson);
+      // console.log(displayPerson);
       break;
     case "no":
       // TODO: search by traits
@@ -40,7 +40,8 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
 
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
   if (searchResults.length === 1) {
-    return displayPerson(person[0]);
+    alert(displayPerson(person[0]));
+    prompt("To see this person's family or descendants type 'family' or 'descendants'.");
   }
 
   else if(searchResults.length > 1) {
@@ -54,25 +55,25 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
 
   let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
-  switch(displayOption){
-    case "info":
+//   switch(displayOption){
+//     case "info":
 
-                      // TODO: get person's info
-    break;
-    case "family":
-                       // TODO: get person's family
-    break;
-    case "descendants":
-                         // TODO: get person's descendants
-    break;
-    case "restart":
-    app(people); // restart
-    break;
-    case "quit":
-    return; // stop execution
-    default:
-    return mainMenu(person, people, searchResults); // ask again
-  }
+//                       // TODO: get person's info
+//     break;
+//     case "family":
+//                        // TODO: get person's family
+//     break;
+//     case "descendants":
+//                          // TODO: get person's descendants
+//     break;
+//     case "restart":
+//     app(people); // restart
+//     break;
+//     case "quit":
+//     return; // stop execution
+//     default:
+//     return mainMenu(person, people, searchResults); // ask again
+//   }
 }
 
 function searchByName(people){
@@ -113,15 +114,14 @@ function displayPerson(person){
   personInfo += ("Occupation:" + person.occupation + "\n");
   // personInfo += ("Parents:" + person.parents + "\n");
   // personInfo += ("Current Spouse:" + person.currentSpouse + "\n");
-  
+
+  return personInfo;
+}
+
 function displayFamily(person){
 
 }
 
 function displayDescendants(person){
-
-}
-
-  console.log(personInfo);
 
 }
