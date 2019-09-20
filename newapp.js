@@ -15,13 +15,9 @@
   //display options/main menu
 
 
-/*
-Build all of your functions for displaying and gathering information below (GUI).
-*/
 
-// app is the function called to start the entire application
-function app(people){
-  let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  function app(people){
+  let searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
   switch(searchType){
     case "yes":
@@ -46,8 +42,13 @@ function app(people){
 function mainMenu(person, people){
 
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
-  if(!person){
+  if (searchResults === 1) {
+    return foundPerson;
+  }
+  else (searchResults > 1) {
+    prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
+  }
+  else if(!person){
     alert("Could not find that individual.");
     return app(people); // restart
   }
@@ -75,8 +76,8 @@ function mainMenu(person, people){
 }
 
 function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", chars);
-  let lastName = promptFor("What is the person's last name?", chars);
+  let firstName = prompt("What is the person's first name?", chars);
+  let lastName = prompt("What is the person's last name?", chars);
 
   let foundPerson = people.filter(function(person){
     if(person.firstName === firstName && person.lastName === lastName){
@@ -86,36 +87,20 @@ function searchByName(people){
       return false;
     }
   })
+  // for(let i = 0; i < data.length; i++){
+  //   console.log(data[i].firstName + " " + data[i].lastName);
+  // }
   // TODO: find the person using the name they entered
   return foundPerson;
 }
 
-//TODO: SEARCH BY TRAITS FUNCTION
-function searchByTrait(people){
-  alert ("These are the following traits we identify people with: Gender, eyecolor, height, age, weight, occupation. The next prompt will ask how many of these traits do you know.")
-  let numberOfTraits = prompt("How many traits can you identify the person with? The traits include:Gender, eyecolor, height, age, weight, occupation. Answer with a number 1 - 6.")
-  let whichTraits = prompt("Which traits would you like to identify the person with? Traits include:Gender, eyecolor, height, age, weight, occupation.")
-  let gender = prompt("What is the person's gender?");
-  let eyeColor = prompt("What is the person's eye color?");
-  let height = prompt("What is the person's height?");
-  let age = prompt("What is the person's age?");
-  let weight = prompt("What is the person's wight?");
-  let occupation = prompt("What is the peron's occupation?");
-
-  // let foundPerson = people.filter(function(person)){
-    
-  // }
-  for (let i = 0; i < data.length; i++) {
-    console.log(data[i].firstName + " " + data[i].lastName);
-  }
-  return foundPerson;
+function yesNo(input){
+  return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
-// alerts a list of people
-function displayPeople(people){
-  alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
-  }).join("\n"));
+// helper function to pass in as default promptFor validation
+function chars(input){
+  return true; // default validation only
 }
 
 function displayPerson(person){
@@ -127,32 +112,16 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-// function that prompts and validates user input
-function promptFor(question, valid){
-  do{
-    let response = prompt(question).trim();
-  } while(!response || !valid(response));
-  return response;
-}
-
-// helper function to pass into promptFor to validate yes/no answers
-function yesNo(input){
-  return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
-}
 
 
-// helper function to pass in as default promptFor validation
-function chars(input){
-  return true; // default validation only
-}
-// let traitArray = [["male", "female"][ "brown", "black", "hazel", "blue", "green"]["58", "59", "61", "62", "63", "65", "66", "67", "69", "70", "71", "72", "74", "76"][]]
-app();
-mainMenu();
-searchByName();
-searchByTrait();
-displayPeople();
-displayPerson();
-promptFor();
-yesNo();
-chars();
 
+
+// app();
+// mainMenu();
+// searchByName();
+// searchByTrait();
+// displayPeople();
+// displayPerson();
+// promptFor();
+// yesNo();
+// chars();
