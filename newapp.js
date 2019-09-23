@@ -58,6 +58,7 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
     return app(people); // restart
   }
 
+<<<<<<< HEAD
   let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their  'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
    switch(displayOption){
@@ -77,6 +78,30 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
     return mainMenu(person, people, searchResults); // ask again
   }
 }
+=======
+  let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+
+// //   switch(displayOption){
+// //     case "info":
+
+// //                       // TODO: get person's info
+// //     break;
+// //     case "family":
+// //                        // TODO: get person's family
+// //     break;
+// //     case "descendants":
+// //                          // TODO: get person's descendants
+// //     break;
+// //     case "restart":
+// //     app(people); // restart
+// //     break;
+// //     case "quit":
+// //     return; // stop execution
+// //     default:
+// //     return mainMenu(person, people, searchResults); // ask again
+// //   }
+// }
+>>>>>>> 24ea7c7421924e7a4f5b9bdd94dad6b38641e9e9
 
 function searchByName(people){
   let firstName = prompt("What is the person's first name?", chars);
@@ -310,6 +335,16 @@ function displayPerson(person){
   return personInfo;
 }
 
+<<<<<<< HEAD
+function displayFamily(person){
+//IF THEY HAVE PARENTS LISTED SHOW AS PARENTS
+//IF THEY HAVE A SPOUSE SHOW SPOUSE
+
+
+
+}
+
+=======
 function displayFamily(person, people, searchResults){
 let familyInfo = ("currentSpouse" + person.spouse + "\n");
 familyInfo += ("kids" + findKids + "\n");
@@ -331,5 +366,14 @@ let siblings = people.filters(function(el){
   });
 }
 function displayDescendants(person){
+>>>>>>> d2828baa3bf4e7009eb67a50ab7237caf164e69b
 
-}
+
+
+
+
+//goal to find children and grandchildren
+
+function displayDescendants(person){
+  
+  }
