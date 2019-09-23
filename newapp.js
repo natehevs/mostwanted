@@ -313,6 +313,7 @@ function displayPerson(person){
   return personInfo;
 }
 
+<<<<<<< HEAD
 function displayFamily(person){
 //IF THEY HAVE PARENTS LISTED SHOW AS PARENTS
 //IF THEY HAVE A SPOUSE SHOW SPOUSE
@@ -321,6 +322,29 @@ function displayFamily(person){
 
 }
 
+=======
+function displayFamily(person, people, searchResults){
+let familyInfo = ("currentSpouse" + person.spouse + "\n");
+familyInfo += ("kids" + findKids + "\n");
+FamilyInfo += ("parents" + person.parents + "\n");
+familyInfo += ("siblings" + findSiblings + "\n");
+}
+function findKids(person, searchResults, people){
+let foundKids = people.filter(function(person){
+  if  (foundKids.parents === foundperson){
+    return foundKids;
+  }
+});
+}
+function findSiblings(person, people, searchResults){
+let siblings = people.filters(function(el){
+  if (el.parents[0]= person.parents[0]){
+    return siblings;
+  }
+  });
+}
+function displayDescendants(person){
+>>>>>>> d2828baa3bf4e7009eb67a50ab7237caf164e69b
 
 
 
