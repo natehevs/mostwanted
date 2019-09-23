@@ -24,7 +24,7 @@ function app(people){
       break;
     case "no":
       // TODO: search by traits
-      searchResults = searchByWeight(people);
+      searchResults = searchByTrait(people);
  
       break;
       default:
@@ -46,6 +46,10 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
 
   else if(searchResults.length > 1) {
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
+    if ("yes") {
+    }
+    else 
+      return app(people);
   }
   else  {
 
@@ -89,13 +93,39 @@ function searchByName(people){
     }
   
   })
-
-
   return foundPerson;
 }
 
+function searchByTrait(people, person, foundPerson) {
+  let searchTrait = prompt("What trait would you like to search by? Type 'gender', 'date of birth', 'height', 'weight', 'eye color', or 'occupation'.");
+  let searchResults;
+  switch(searchTrait){
+    case "gender":
+      searchResults = searchByGender(people);
+      break;
+    case "date of birth":
+      searchResults = searchByDob(people);
+      break;
+    case "height":
+      searchResults = searchByHeight(people);
+      break;
+    case "weight":
+      searchResults = searchByWeight(people);
+      break;
+    case "eye color":
+      searchResults = searchByEyeColor(people);
+      break;
+    case "occupation":
+      searchResults = searchByOccupation(people);
+      break;
+      default:
+    return mainMenu(people);
+      break;
+  }
+}
+
 function searchByGender(people, person) {
-let genderOfPerson = prompt("What is the person's gender? 'm' for male, 'f' for female.");
+let genderOfPerson = prompt("What is the person's gender? Type 'male' or 'female'");
 let foundPerson = people.filter(function(person){
    if (person.gender === genderOfPerson){
     return true;
@@ -104,7 +134,8 @@ let foundPerson = people.filter(function(person){
     return false;
    }
   })
-  return foundPerson;
+  console.log(foundPerson);
+  return searchByTrait(people);
 }
 
 function searchByDob(people, person) {
@@ -117,7 +148,8 @@ let foundPerson = people.filter(function(person){
     return false;
    }
   })
-  return foundPerson;
+  console.log(foundPerson);
+  return searchByTrait(people);
 }
 
 function searchByHeight(people, person) {
@@ -130,7 +162,8 @@ let foundPerson = people.filter(function(person){
     return false;
    }
   })
-  return foundPerson;
+  console.log(foundPerson);
+  return searchByTrait(people);
 }
 
 function searchByWeight(people, person){
@@ -143,11 +176,12 @@ let foundPerson = people.filter(function(Person){
     return false;
    }
   })
-  return foundPerson;
+  console.log(foundPerson);
+  return searchByTrait(people);
 }
 
 function searchByEyeColor(people, person){
-let eyeColorOfPerson = prompt("What is the person's eyecolor?");
+let eyeColorOfPerson = prompt("What is the person's eyecolor? Type 'brown', 'blue', 'black', 'hazel' or 'green'.");
 let foundPerson = people.filter(function(Person){
    if (person.eyeColor === eyeColorOfPerson){
     return true;
@@ -156,11 +190,12 @@ let foundPerson = people.filter(function(Person){
     return false;
    }
   })
-  return foundPerson;
+  console.log(foundPerson);
+  return searchByTrait(people);
 }
 
 function searchByOccupation(people, person){
-let occupationOfPerson = prompt("What is the person's occupation?");
+let occupationOfPerson = prompt("What is the person's occupation? Type 'programmer', 'assistant', 'landscaper', 'nurse', 'architect', 'doctor' or 'politician'.");
 let foundPerson = people.filter(function(person){
    if (person.occupation === occupationOfPerson){
     return true;
@@ -169,7 +204,8 @@ let foundPerson = people.filter(function(person){
     return false;
    }
   })
-  return foundPerson;
+  console.log(foundPerson);
+  return searchByTrait(people);
 }
 
 
