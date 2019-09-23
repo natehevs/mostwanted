@@ -48,8 +48,9 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
     if ("yes") {
     }
-    else 
+    else {
       return app(people);
+    }
   }
   else  {
 
@@ -119,26 +120,39 @@ function searchByTrait(people, person, foundPerson) {
       searchResults = searchByOccupation(people);
       break;
       default:
-    return mainMenu(people);
+    return app(people);
       break;
   }
 }
 
-function searchByGender(people, person) {
+function searchByGender(people, person, searchResults) {
 let genderOfPerson = prompt("What is the person's gender? Type 'male' or 'female'");
 let foundPerson = people.filter(function(person){
    if (person.gender === genderOfPerson){
     return true;
   }
-  else{ 
+  else  { 
     return false;
    }
-  })
+  });
+
+      if (foundPerson.length === 1) {
+        alert(displayPerson(foundPerson[0]));
+      }
+
+      else if (foundPerson.length > 1) {
+        alert("There were too many results that matched your search please choose another trait to identify.");
+      return searchByTrait(foundPerson);
+      }
+      else {
+        return app(people);
+      }
+
   console.log(foundPerson);
-  return searchByTrait(people);
+  return foundPerson;
 }
 
-function searchByDob(people, person) {
+function searchByDob(people, person, searchResults) {
 let dobOfPerson = prompt("What is the person's date of birth? Example: month/day/year");
 let foundPerson = people.filter(function(person){
    if (person.dob === dobOfPerson){
@@ -147,12 +161,25 @@ let foundPerson = people.filter(function(person){
   else{ 
     return false;
    }
-  })
+  });
+
+      if (foundPerson.length === 1) {
+        alert(displayPerson(foundPerson[0]));
+      }
+
+      else if (foundPerson.length > 1) {
+        alert("There were too many results that matched your search please choose another trait to identify.");
+      return searchByTrait(foundPerson);
+      }
+      else {
+        return app(people);
+      }
+
   console.log(foundPerson);
-  return searchByTrait(people);
+  return foundPerson;
 }
 
-function searchByHeight(people, person) {
+function searchByHeight(people, person, searchResults) {
 let heightOfPerson = prompt("What is the person's height?");
 let foundPerson = people.filter(function(person){
    if (person.height === heightOfPerson){
@@ -161,26 +188,52 @@ let foundPerson = people.filter(function(person){
   else{ 
     return false;
    }
-  })
+  });
+  
+      if (foundPerson.length === 1) {
+        alert(displayPerson(foundPerson[0]));
+      }
+
+      else if (foundPerson.length > 1) {
+        alert("There were too many results that matched your search please choose another trait to identify.");
+      return searchByTrait(foundPerson);
+      }
+      else {
+        return app(people);
+      }
+
   console.log(foundPerson);
-  return searchByTrait(people);
+  return foundPerson;
 }
 
-function searchByWeight(people, person){
+function searchByWeight(people, person, searchResults){
 let weightOfPerson = prompt("How much does the person weigh?");
 let foundPerson = people.filter(function(Person){
-   if (person.weight === weightofperson){
+   if (person.weight === weightOfPerson){
     return true;
   }
   else{ 
     return false;
    }
-  })
+  });
+  
+      if (foundPerson.length === 1) {
+        alert(displayPerson(foundPerson[0]));
+      }
+
+      else if (foundPerson.length > 1) {
+        alert("There were too many results that matched your search please choose another trait to identify.");
+      return searchByTrait(foundPerson);
+      }
+      else {
+        return app(people);
+      }
+
   console.log(foundPerson);
-  return searchByTrait(people);
+  return foundPerson;
 }
 
-function searchByEyeColor(people, person){
+function searchByEyeColor(people, person, searchResults){
 let eyeColorOfPerson = prompt("What is the person's eyecolor? Type 'brown', 'blue', 'black', 'hazel' or 'green'.");
 let foundPerson = people.filter(function(Person){
    if (person.eyeColor === eyeColorOfPerson){
@@ -189,23 +242,49 @@ let foundPerson = people.filter(function(Person){
   else{ 
     return false;
    }
-  })
+  });
+  
+      if (foundPerson.length === 1) {
+        alert(displayPerson(foundPerson[0]));
+      }
+
+      else if (foundPerson.length > 1) {
+        alert("There were too many results that matched your search please choose another trait to identify.");
+      return searchByTrait(foundPerson);
+      }
+      else {
+        return app(people);
+      }
+
   console.log(foundPerson);
-  return searchByTrait(people);
+  return foundPerson;
 }
 
-function searchByOccupation(people, person){
-let occupationOfPerson = prompt("What is the person's occupation? Type 'programmer', 'assistant', 'landscaper', 'nurse', 'architect', 'doctor' or 'politician'.");
-let foundPerson = people.filter(function(person){
+function searchByOccupation(people, person, searchResults){
+  let occupationOfPerson = prompt("What is the person's occupation? Type 'programmer', 'assistant', 'landscaper', 'nurse', 'architect', 'doctor' or 'politician'.");
+  let foundPerson = people.filter(function(person){
    if (person.occupation === occupationOfPerson){
     return true;
   }
   else{ 
     return false;
    }
-  })
-  console.log(foundPerson);
-  return searchByTrait(people);
+  });
+
+    if (foundPerson.length === 1) {
+      alert(displayPerson(foundPerson[0]));
+    }
+
+    else if (foundPerson.length > 1) {
+      alert("There were too many results that matched your search please choose another trait to identify.");
+      return searchByTrait(foundPerson);
+    }
+    else {
+        return app(people);
+      }
+
+console.log(foundPerson);
+return foundPerson;
 }
 
 
