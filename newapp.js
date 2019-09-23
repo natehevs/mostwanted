@@ -24,7 +24,7 @@ function app(people){
       break;
     case "no":
       // TODO: search by traits
-      searchResults = searchbyweight(people);
+      searchResults = searchByWeight(people);
  
       break;
       default:
@@ -94,41 +94,86 @@ function searchByName(people){
   return foundPerson;
 }
 
-function searchbyweight(people,person){
-let weightOfPerson = prompt("how much dose the person weight");
+function searchByGender(people, person) {
+let genderOfPerson = prompt("What is the person's gender? 'm' for male, 'f' for female.");
+let foundPerson = people.filter(function(person){
+   if (person.gender === genderOfPerson){
+    return true;
+  }
+  else{ 
+    return false;
+   }
+  })
+  return foundPerson;
+}
+
+function searchByDob(people, person) {
+let dobOfPerson = prompt("What is the person's date of birth? Example: month/day/year");
+let foundPerson = people.filter(function(person){
+   if (person.dob === dobOfPerson){
+    return true;
+  }
+  else{ 
+    return false;
+   }
+  })
+  return foundPerson;
+}
+
+function searchByHeight(people, person) {
+let heightOfPerson = prompt("What is the person's height?");
+let foundPerson = people.filter(function(person){
+   if (person.height === heightOfPerson){
+    return true;
+  }
+  else{ 
+    return false;
+   }
+  })
+  return foundPerson;
+}
+
+function searchByWeight(people, person){
+let weightOfPerson = prompt("How much does the person weigh?");
 let foundPerson = people.filter(function(Person){
    if (person.weight === weightofperson){
     return true;
   }
   else{ 
-    return false
+    return false;
    }
   })
-  return foundPerson
+  return foundPerson;
 }
-function searchbyeyecolor(people,person){
-let eyeColorOfPerson = prompt("what is the persons eyecolor");
+
+function searchByEyeColor(people, person){
+let eyeColorOfPerson = prompt("What is the person's eyecolor?");
 let foundPerson = people.filter(function(Person){
    if (person.eyeColor === eyeColorOfPerson){
     return true;
   }
   else{ 
-    return false
+    return false;
    }
   })
-  return foundPerson
+  return foundPerson;
 }
-function searchByOccupation(people,person){
-let occupationOfPerson = prompt("what is the persons occupation");
-let foundPerson = people.filter(function(Person){
+
+function searchByOccupation(people, person){
+let occupationOfPerson = prompt("What is the person's occupation?");
+let foundPerson = people.filter(function(person){
    if (person.occupation === occupationOfPerson){
     return true;
   }
   else{ 
-    return false
+    return false;
    }
   })
-  return foundPerson
+  return foundPerson;
+}
+
+
+
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
