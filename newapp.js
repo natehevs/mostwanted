@@ -32,19 +32,18 @@ function app(people){
       break;
   }
   
-  mainMenu(searchResults, people, searchResults);
+  mainMenu(searchResults, people);
 }
 
 // Menu function to call once you find who you are looking for
-function mainMenu(person, people, searchResults, foundPerson, personInfo){
+function mainMenu(person, people){
 
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-  if (searchResults.length === 1) {
+  if (person.length === 1) {
     alert(displayPerson(person[0]));
-    prompt("To see this person's family or descendants type 'family' or 'descendants'.");
   }
 
-  else if(searchResults.length > 1) {
+  else if(person.length > 1) {
     prompt("Would you like to identify some personal traits to help narrow your search? Type 'yes' or 'no'.");
     if ("yes") {
     }
@@ -58,28 +57,28 @@ function mainMenu(person, people, searchResults, foundPerson, personInfo){
     return app(people); // restart
   }
 
-  let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+  let displayOption = prompt("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
-// //   switch(displayOption){
-// //     case "info":
-
-// //                       // TODO: get person's info
-// //     break;
-// //     case "family":
-// //                        // TODO: get person's family
-// //     break;
-// //     case "descendants":
-// //                          // TODO: get person's descendants
-// //     break;
-// //     case "restart":
-// //     app(people); // restart
-// //     break;
-// //     case "quit":
-// //     return; // stop execution
-// //     default:
-// //     return mainMenu(person, people, searchResults); // ask again
-// //   }
-// }
+  switch(displayOption){
+    case "info":
+            // TODO: get person's info
+    break;
+    case "family":
+            // TODO: get person's family
+      displayFamily(people, person[0]);
+    break;
+    case "descendants":
+            // TODO: get person's descendants
+    break;
+    case "restart":
+    app(people); // restart
+    break;
+    case "quit":
+    return; // stop execution
+    default:
+    return mainMenu(person, people, searchResults); // ask again
+  }
+}
 
 function searchByName(people){
   let firstName = prompt("What is the person's first name?", chars);
@@ -313,42 +312,68 @@ function displayPerson(person){
   return personInfo;
 }
 
-<<<<<<< HEAD
-function displayFamily(person){
-//IF THEY HAVE PARENTS LISTED SHOW AS PARENTS
-//IF THEY HAVE A SPOUSE SHOW SPOUSE
+function displayFamily(people, person){
+let familyInfo = "";
+
+  if (person.currentSpouse != null){
+  familyInfo += ("currentSpouse" + getName(person.currentSpouse, people) + "\n");
+  }
 
 
+let kids = findKids(people, person);
+  for(let i = 0; i < kids.length; i++){
+    familyInfo += ("Child: " + kids[i].firstName + " " + kids[i].lastName + "\n");
+   }
 
+let siblings = findSiblings(people, person);
+  for(let i = 0; i < siblings.length; i++){
+    familyInfo += ("Siblings" + siblings[i].firstName + " " + siblings[i].lastName + "\n");
+    }
+    if (person.parents.length > 1){
+     familyInfo += ("parents" + getName(person.parents[0], people) + " " +  getName(person.parents[1], people) + "\n"); 
+   }else if (person.parents.length === 1){
+    familyInfo += ("parents" + getName(person.parents[0], people) + "\n");
+   }
+
+
+  
+  alert(familyInfo);
 }
 
-=======
-function displayFamily(person, people, searchResults){
-let familyInfo = ("currentSpouse" + person.spouse + "\n");
-familyInfo += ("kids" + findKids + "\n");
-FamilyInfo += ("parents" + person.parents + "\n");
-familyInfo += ("siblings" + findSiblings + "\n");
+function getName (id, people){
+  let personFound = people.filter(function (person){
+    if (id === person.id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  return personFound[0].firstName + " " + personFound[0].lastName;
 }
-function findKids(person, searchResults, people){
-let foundKids = people.filter(function(person){
-  if  (foundKids.parents === foundperson){
-    return foundKids;
+
+function findKids(people, person){
+let foundKids = people.filter(function(personItteration){
+  if  (person.id === personItteration.parents[0]  || person.id === personItteration.parents[1]){
+    return true;
+  }
+  else {
+    return false;
   }
 });
+return foundKids;
 }
-function findSiblings(person, people, searchResults){
-let siblings = people.filters(function(el){
-  if (el.parents[0]= person.parents[0]){
-    return siblings;
+function findSiblings(people, person){
+let foundSiblings = people.filter(function(el){
+  if (el.parents[0] === person.parents[0]){
+    return true;
+  }
+  else {
+    return false;
   }
   });
+return foundSiblings;
 }
-function displayDescendants(person){
->>>>>>> d2828baa3bf4e7009eb67a50ab7237caf164e69b
-
-
-
-
 
 //goal to find children and grandchildren
 
