@@ -23,9 +23,9 @@ function app(people){
       console.log(displayPerson);
       break;
     case "no":
-      // TODO: search by traits
-      searchResults = searchByTrait(people);
-      prompt("Please enter any known traits.");
+      // TODO: search b traits
+      searchResults = searchbyheight(people);
+      console.log(displayPerson)
       break;
       default:
     app(people); 
@@ -135,7 +135,17 @@ function promptFor(question, valid){
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
-
+function searchbyheight(people){
+let weightOfPerson = prompt("how much dose the person weight",chars);
+let foundPerson = people.filter(function(Person){
+   if (person.wieght === weightofperson){
+    return true;
+  }
+  else{ 
+    return false
+   }
+  })
+}
 
 // helper function to pass in as default promptFor validation
 function chars(input){

@@ -24,8 +24,8 @@ function app(people){
       break;
     case "no":
       // TODO: search by traits
-      searchResults = searchByTrait(people);
-      prompt("Please enter any known traits.");
+      searchResults = searchbyweight(people);
+ 
       break;
       default:
     return app(people);
@@ -94,6 +94,41 @@ function searchByName(people){
   return foundPerson;
 }
 
+function searchbyweight(people,person){
+let weightOfPerson = prompt("how much dose the person weight");
+let foundPerson = people.filter(function(Person){
+   if (person.weight === weightofperson){
+    return true;
+  }
+  else{ 
+    return false
+   }
+  })
+  return foundPerson
+}
+function searchbyeyecolor(people,person){
+let eyeColorOfPerson = prompt("what is the persons eyecolor");
+let foundPerson = people.filter(function(Person){
+   if (person.eyeColor === eyeColorOfPerson){
+    return true;
+  }
+  else{ 
+    return false
+   }
+  })
+  return foundPerson
+}
+function searchByOccupation(people,person){
+let occupationOfPerson = prompt("what is the persons occupation");
+let foundPerson = people.filter(function(Person){
+   if (person.occupation === occupationOfPerson){
+    return true;
+  }
+  else{ 
+    return false
+   }
+  })
+  return foundPerson
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
