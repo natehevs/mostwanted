@@ -20,10 +20,10 @@ function app(people){
   switch(searchType){
     case "yes":
       searchResults = searchByName(people);
-      // console.log(displayPerson);
+      
       break;
     case "no":
-      // TODO: search by traits
+      
       searchResults = searchByTrait(people);
  
       break;
@@ -35,10 +35,10 @@ function app(people){
   mainMenu(searchResults, people);
 }
 
-// Menu function to call once you find who you are looking for
+
 function mainMenu(person, people){
 
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
+  
   if (person.length === 1) {
     alert(displayPerson(person[0]));
   }
@@ -54,29 +54,29 @@ function mainMenu(person, people){
   else  {
 
     alert("Could not find that individual.");
-    return app(people); // restart
+    return app(people); 
   }
 
   let displayOption = prompt("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
   switch(displayOption){
     case "info":
-            // TODO: get person's info
+
     break;
     case "family":
-            // TODO: get person's family
+    
       displayFamily(people, person[0]);
     break;
     case "descendants":
-            // TODO: get person's descendants
+    
     break;
     case "restart":
-    app(people); // restart
+    app(people); 
     break;
     case "quit":
-    return; // stop execution
+    return; 
     default:
-    return mainMenu(person, people, searchResults); // ask again
+    return mainMenu(person, people, searchResults); 
   }
 }
 
@@ -291,9 +291,9 @@ return foundPerson;
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
-                       // helper function to pass in as default promptFor validation 
+
 function chars(input){
-  return true;         // default validation only
+  return true;         
 }
 
 function displayPerson(person){
@@ -306,8 +306,6 @@ function displayPerson(person){
   personInfo += ("Weight:" + person.weight + "\n");
   personInfo += ("Eye Color:" + person.eyeColor + "\n");
   personInfo += ("Occupation:" + person.occupation + "\n");
-  // personInfo += ("Parents:" + person.parents + "\n");
-  // personInfo += ("Current Spouse:" + person.currentSpouse + "\n");
 
   return personInfo;
 }
@@ -378,5 +376,11 @@ return foundSiblings;
 //goal to find children and grandchildren
 
 function displayDescendants(person){
-  
+  let descendants = findKids(person, people x)
+    if (x > 0) {
+      console.log (x);
+      return descendants(x + 1);
+    }
+    else ()
+      return x;
   }
