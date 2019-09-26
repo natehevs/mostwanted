@@ -15,8 +15,9 @@
   //display options/main menu
 
 function app(people){
-  let searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'") 
   let searchResults;
+  searchType.toLowerCase()
   switch(searchType){
     case "yes":
       searchResults = searchByName(people);
@@ -373,14 +374,16 @@ let foundSiblings = people.filter(function(el){
 return foundSiblings;
 }
 
+
 //goal to find children and grandchildren
 
-function displayDescendants(person){
-  let descendants = findKids(person, people x)
-    if (x > 0) {
-      console.log (x);
-      return descendants(x + 1);
-    }
-    else ()
-      return x;
-  }
+// function displayDescendants(person){
+//   let descendants = findKids(person, people x)
+//     if (x > 0) {
+//       console.log (x);
+//       return descendants(x + 1);
+//     }
+//     else {
+//       return x;
+  //   }
+  // }
